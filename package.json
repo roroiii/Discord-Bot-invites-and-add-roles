@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@discordjs/builders": "^1.0.0",
+    "@discordjs/rest": "^1.0.0",
+    "discord-api-types": "^0.36.2",
+    "discord.js": "^13.1.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3"
+  },
+  "engines": {
+    "node": ">=16.9.0"
+  },
+  "main": "index.js",
+  "stript": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "deploy": "node deploy-commands.js",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0"
+  }
+}
