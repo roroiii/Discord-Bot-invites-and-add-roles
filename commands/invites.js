@@ -10,7 +10,6 @@ module.exports = {
       invites.each((inv) =>
         codeUses.push({ username: inv.inviter.username, userId: inv.inviterId, invites: inv.uses })
       );
-      console.log(codeUses);
 
       // const embed = new MessageEmbed()
       //   .setColor('#0099ff')

@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { InvitesInfo } = require('../database');
+const { ssBossRole } = require('../data/roleIdData');
 
 module.exports = {
   data: new SlashCommandBuilder().setName('addinvitestoserver').setDescription('add invites to server!'),
@@ -12,12 +13,10 @@ module.exports = {
       );
 
       const memberRoles = interaction.member._roles;
-      const ssBossRole = '998846707179733052';
 
-      if (memberRoles.length === 0) return interaction.reply(`You do not have permission`);
-      console.log(memberRoles);
-      memberRoles.some((role) => console.log(role));
-      console.log(memberRoles.some((role) => role === ssBossRole));
+      if (memberRoles.length === 0) {
+        return interaction.reply({ content: `You do not have permission`, ephemeral: true });
+      }
       if (memberRoles.some((role) => role === ssBossRole)) {
         for (const i in codeUses.length) {
           const inviteInfo = await InvitesInfo.create({
@@ -26,7 +25,7 @@ module.exports = {
             invites: codeUses[i].invites,
           });
         }
-        return interaction.reply(`Invites all added.`);
+        return interaction.reply({ content: `Invites all added.`, ephemeral: true });
       }
       return interaction.reply(`You do not have permission`);
     } catch (error) {
