@@ -16,10 +16,8 @@ module.exports = {
           username: inv.inviter.username,
           userId: inv.inviterId,
           invites: inv.uses,
-          // roles: inv.member._roles,
         })
       );
-      console.log(codeUses);
       const memberRoles = interaction.member._roles;
 
       if (memberRoles.length === 0) {

@@ -11,19 +11,11 @@ module.exports = {
         codeUses.push({ username: inv.inviter.username, userId: inv.inviterId, invites: inv.uses })
       );
 
-      // const embed = new MessageEmbed()
-      //   .setColor('#0099ff')
-      //   .setTitle('Some title')
-      //   .setURL('https://discord.js.org/')
-      //   .setDescription('Some description here');
-
       for (let i = 0; i < codeUses.length; ++i) {
         if (codeUses[i].userId === interaction.member.user.id) {
-          // await interaction.reply(`You've invited ${codeUses[i].invites} member to the server!`);
           await interaction.reply({
             content: `You've invited ${codeUses[i].invites} member to the server!`,
             ephemeral: true,
-            // embeds: [embed],
           });
         }
       }

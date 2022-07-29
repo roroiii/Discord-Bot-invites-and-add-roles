@@ -24,16 +24,15 @@ module.exports = {
       if (memberRoles.some((role) => role === ssBossRole)) {
         for (let i = 0; i < codeUses.length; ++i) {
           if (codeUses[i].userId === user.id) {
-            await interaction.reply({
+            return interaction.reply({
               content: `<@${user.id}> is invited ${codeUses[i].invites} member to the server!`,
               ephemeral: true,
             });
-            return;
           }
         }
-        await interaction.reply({ content: `<@${user.id}> is not invited member to the server!`, ephemeral: true });
+        return interaction.reply({ content: `<@${user.id}> is not invited member to the server!`, ephemeral: true });
       }
-      return interaction.reply({ content: `You do not have permission`, ephemeral: true });
+      await interaction.reply({ content: `You do not have permission`, ephemeral: true });
     } catch (error) {
       console.log(error);
       await interaction.reply(`error`);

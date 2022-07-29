@@ -28,7 +28,6 @@ module.exports = {
       if (memberRoles.some((role) => role === ssBossRole)) {
         const targetMember = interaction.options.getMember('target');
         for (let i = 0; i < codeUses.length; ++i) {
-          console.log(codeUses[i].invites >= 3);
           if (
             codeUses[i].userId === user.id &&
             targetMember.roles.cache.some((role) => role.id === superRole) &&
