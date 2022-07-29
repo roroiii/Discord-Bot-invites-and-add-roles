@@ -12,6 +12,3 @@ RUN yarn
 # ENTRYPOINT ["node ./src/Listener.js"]
 CMD ["yarn", "deploy"]
 CMD ["yarn", "start"]
-
-# Specify port app runs on
-# EXPOSE 3876

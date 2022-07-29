@@ -48,3 +48,54 @@
 - 特殊身份者權限限定使用
 - 結果只有特殊身份者自己可見
 - target 輸入使用者
+
+## 設定檔
+
+**config.json**
+
+```json
+{
+  "token": "your-bot-token",
+  "clientId": "client-id",
+  "guildId": "guild-id",
+  "clientSecret": "client-secret"
+}
+```
+
+**database.js**
+
+```js
+const Sequelize = require('sequelize');
+
+const sequelize = new Sequelize('data-table', 'admin', 'password', {
+  host: 'host',
+  dialect: 'mysql',
+  port: '5000',
+  logging: false,
+});
+
+const InvitesInfo = sequelize.define('invites_info', {
+  userId: {
+    type: Sequelize.STRING,
+    unique: true,
+  },
+  username: Sequelize.STRING,
+  invites: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
+    allowNull: false,
+  },
+});
+
+module.exports = { InvitesInfo };
+```
+
+### 安裝與啟動
+
+確定本地 node 版本 >=16.9.0
+
+```
+yarn
+yarn deploy
+yarn start
+```

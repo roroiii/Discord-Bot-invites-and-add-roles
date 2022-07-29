@@ -11,9 +11,9 @@ services:
     tty: true # docker run -t
     restart: always
     # environment:
-    #  - HOST=34.80.43.28
-    #  - PORT=3876
-    #  - USER=james
-    #  - PASSWORD=gicgicgic
-    # - DATABASE=marcoMarket
-    #  - TEST=104.199.176.95
+    #  - HOST=
+    #  - PORT=
+    #  - USER=
+    #  - PASSWORD=
+    # - DATABASE=
+    #  - TEST=
